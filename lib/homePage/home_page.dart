@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -187,11 +187,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             Container(
               height: 45,
               width: MediaQuery.of(context).size.width,
-              padding: EdgeInsets.symmetric(horizontal: 5),
               child: TabBar(
                 physics: BouncingScrollPhysics(),
-                
-                labelPadding: EdgeInsets.only(left: 20),
+                labelPadding: EdgeInsets.symmetric(horizontal: 25),
                 isScrollable: true,
                 controller: _tabController,
                 indicator: BoxDecoration(
@@ -206,7 +204,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
             ),
             Container(
-              height: 1050,
+              height: 1100,
               child: TabBarView(
                 controller: _tabController,
                 children: [
