@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:movie_app/api/api.dart';
 
 Widget sliderList(List items, String categoryTitle, String type, int itemCount){
   return Column(
@@ -29,7 +30,7 @@ Widget sliderList(List items, String categoryTitle, String type, int itemCount){
                       BlendMode.darken
                     ),
                     image: NetworkImage(
-                      'https://image.tmdb.org/t/p/w500${items[index]['poster_path']}'
+                      '$IMAGE_BASE_PATH${items[index]['poster_path']}'
                     ),
                     fit: BoxFit.cover
                   )
