@@ -1,6 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:movie_app/api/api.dart';
+import 'package:movie_app/details/checker.dart';
+import 'package:movie_app/details/movie_details.dart';
+import 'package:movie_app/details/series_details.dart';
 
 Widget sliderList(List items, String categoryTitle, String type, int itemCount){
   return Column(
@@ -19,7 +22,12 @@ Widget sliderList(List items, String categoryTitle, String type, int itemCount){
           itemBuilder: (context, index){
             return GestureDetector(
               onTap: () {
-                //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => movieDetails()));
+                if(type == 'movie'){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => MovieDetails(movieId: items[index]['id'])));
+                }
+                else if(type == 'tv'){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => SeriesDetails(tvId: items[index]['id'])));
+                }   
               },
               child: Container(
                 decoration: BoxDecoration(
